@@ -9,5 +9,5 @@ func main() {
 }
 
 func hello() string {
-	return "hello 1 1 1 "
+	return "hello ! "
 }
