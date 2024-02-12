@@ -24,5 +24,8 @@ jobs:
     - name: Build
       run: go build -o myapp main.go
 
-    - name: Run the app
-      run: ./myapp
+    - name: Build Docker image
+      run: docker build -t myapp .
+
+    - name: Run Docker container
+      run: docker run myapp
