@@ -1,0 +1,1124 @@
+{
+	"info": {
+		"_postman_id": "063fa84f-0b81-46c3-82a9-8729931641b9",
+		"name": "ManifestIt_APIS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32934753"
+	},
+	"item": [
+		{
+			"name": "User Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const response = pm.response;",
+							"",
+							"pm.test(\"API response is proper\", function () {",
+							"",
+							"    response.access_token != null",
+							"    response.refresh_token !=null",
+							"});",
+							"",
+							"pm.test(\"User returned is proper\", function () {",
+							"    response.userEmail == \"dummy@manifestit.io\"",
+							"    response.userId!= null",
+							"    response.userName!= null",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"dummy@manifestit.io\",\n    \"password\": \"Test123$\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/user/login",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Logout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const response = pm.response;",
+							"",
+							"pm.test(\"API response is proper\", function () {",
+							"",
+							"    response.access_token != null",
+							"    response.refresh_token !=null",
+							"});",
+							"",
+							"pm.test(\"User returned is proper\", function () {",
+							"    response.userEmail == \"dummy@manifestit.io\"",
+							"    response.userId!= null",
+							"    response.userName!= null",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "mit_org_id",
+						"value": "{{mit_org_id}}",
+						"type": "text"
+					},
+					{
+						"key": "mit_subscription_id",
+						"value": "{{mit_subscription_id}}",
+						"type": "text"
+					},
+					{
+						"key": "Refresh_Token",
+						"value": "{{Refreshtoken}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{Accesstoken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/user/logout",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"user",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Verify",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const response = pm.response;",
+							"",
+							"pm.test(\"API response is proper\", function () {",
+							"",
+							"    response.access_token != null",
+							"    response.refresh_token !=null",
+							"});",
+							"",
+							"pm.test(\"User returned is proper\", function () {",
+							"    response.userEmail == \"dummy@manifestit.io\"",
+							"    response.userId!= null",
+							"    response.userName!= null",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"dummy@manifestit.io\",\n    \"password\": \"Test123$\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/user/login",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Provider",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const response = pm.response;",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}:{{port}}/provider",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"provider"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user context",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const response = pm.response;",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}:{{port}}/provider",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"provider"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get the lookup",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const response = pm.response;",
+							"",
+							"pm.test(\"Response format is proper or not\", function(){",
+							"",
+							"    response.id!=null",
+							"    response.key!=null",
+							"})",
+							"",
+							"pm.test(\"Is it active or not\",function(){",
+							"    response.isActive!=false",
+							"})",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "mit_org_id",
+						"value": "{{mit_org_id}}",
+						"type": "text"
+					},
+					{
+						"key": "mit_subscription_id",
+						"value": "{{mit_subscription_id}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}:{{port}}/lookup",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"lookup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get the lookup with key",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const response = pm.response;",
+							"",
+							"pm.test(\"Response format is proper or not\", function(){",
+							"",
+							"    response.id!=null",
+							"    response.key!=null",
+							"})",
+							"",
+							"pm.test(\"Is it active or not\",function(){",
+							"    response.isActive!=false",
+							"})",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "mit_org_id",
+						"value": "{{mit_org_id}}",
+						"type": "text"
+					},
+					{
+						"key": "mit_subscription_id",
+						"value": "{{mit_subscription_id}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}:{{port}}/lookup/:key",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"lookup",
+						":key"
+					],
+					"variable": [
+						{
+							"key": "key",
+							"value": "dropbox"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get the org",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const response = pm.response;",
+							"",
+							"pm.test(\"Response format is proper or not\", function(){",
+							"",
+							"    response.id!=null",
+							"    response.key!=null",
+							"})",
+							"",
+							"pm.test(\"Is it active or not\",function(){",
+							"    response.isActive!=false",
+							"})",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "mit_org_id",
+						"value": "{{mit_org_id}}",
+						"type": "text"
+					},
+					{
+						"key": "mit_subscription_id",
+						"value": "{{mit_subscription_id}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}:{{port}}/org",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"org"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get the contacts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const response = pm.response;",
+							"",
+							"pm.test(\"Response format is proper or not\", function(){",
+							"",
+							"    response.id!=null",
+							"    response.type!=null",
+							"})",
+							"",
+							"pm.test(\"Is it active or not\",function(){",
+							"    response.isActive!=false",
+							"})",
+							"",
+							"pm.test(\"Billing account or not\",function(){",
+							"    response.type===\"Billing\"",
+							"})",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "mit_org_id",
+						"value": "{{mit_org_id}}",
+						"type": "text"
+					},
+					{
+						"key": "mit_subscription_id",
+						"value": "{{mit_subscription_id}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}:{{port}}/sys_contact",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"sys_contact"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get the contacts with Id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const response = pm.response;",
+							"",
+							"pm.test(\"Response format is proper or not\", function(){",
+							"",
+							"    response.id!=null",
+							"    response.key!=null",
+							"})",
+							"",
+							"pm.test(\"Is it active or not\",function(){",
+							"    response.isActive!=false",
+							"})",
+							"",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "mit_org_id",
+						"value": "{{mit_org_id}}",
+						"type": "text"
+					},
+					{
+						"key": "mit_subscription_id",
+						"value": "{{mit_subscription_id}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}:{{port}}/sys_contact/:id",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"sys_contact",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all consumer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const response = pm.response;",
+							"",
+							"pm.test(\"Response format is proper or not\", function(){",
+							"",
+							"    response.id!=null",
+							"    response.key!=null",
+							"})",
+							"",
+							"pm.test(\"Is it active or not\",function(){",
+							"    response.isActive!=false",
+							"})",
+							"",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "mit_org_id",
+						"value": "{{mit_org_id}}",
+						"type": "text"
+					},
+					{
+						"key": "mit_subscription_id",
+						"value": "{{mit_subscription_id}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}:{{port}}/sys_contact/:id",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"sys_contact",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all subscription",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const response = pm.response;",
+							"",
+							"pm.test(\"Response format is proper or not\", function(){",
+							"",
+							"    response.id!=null",
+							"    response.key!=null",
+							"})",
+							"",
+							"pm.test(\"Is it active or not\",function(){",
+							"    response.isActive!=false",
+							"})",
+							"",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "mit_org_id",
+						"value": "{{mit_org_id}}",
+						"type": "text"
+					},
+					{
+						"key": "mit_subscription_id",
+						"value": "{{mit_subscription_id}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}:{{port}}/sys_contact/:id",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"sys_contact",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all subscription with id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const response = pm.response;",
+							"",
+							"pm.test(\"Response format is proper or not\", function(){",
+							"",
+							"    response.id!=null",
+							"    response.type!=null",
+							"})",
+							"",
+							"pm.test(\"Is it active or not\",function(){",
+							"    response.isActive!=false",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "mit_org_id",
+						"value": "{{mit_org_id}}",
+						"type": "text"
+					},
+					{
+						"key": "mit_subscription_id",
+						"value": "{{mit_subscription_id}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}:{{port}}/subscription/:id",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"subscription",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all subscription with id Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const response = pm.response;",
+							"",
+							"pm.test(\"Response format is proper or not\", function(){",
+							"",
+							"    response.id!=null",
+							"    response.type!=null",
+							"})",
+							"",
+							"pm.test(\"Is it active or not\",function(){",
+							"    response.isActive!=false",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "mit_org_id",
+						"value": "{{mit_org_id}}",
+						"type": "text"
+					},
+					{
+						"key": "mit_subscription_id",
+						"value": "{{mit_subscription_id}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}:{{port}}/subscription/:id",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"subscription",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put a subscription with id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const response = pm.response;",
+							"",
+							"pm.test(\"Response format is proper or not\", function(){",
+							"",
+							"    response.id!=null",
+							"    response.type!=null",
+							"})",
+							"",
+							"pm.test(\"Is it active or not\",function(){",
+							"    response.isActive!=false",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "mit_org_id",
+						"value": "{{mit_org_id}}",
+						"type": "text"
+					},
+					{
+						"key": "mit_subscription_id",
+						"value": "{{mit_subscription_id}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 3,\n    \"name\": \"Netflix\",\n    \"type\": \"Pro\",\n    \"softwareName\": \"Netflix Global Inc\",\n    \"startDate\": \"2022-01-17T16:28:36.014Z\",\n    \"endDate\": \"2023-12-01T00:00:00Z\",\n    \"status\": null,\n    \"defaultDomainName\": null,\n    \"defaultOrgId\": 2,\n    \"uuid\": null,\n    \"expDate\": null,\n    \"renewal\": false,\n    \"renewalDate\": null,\n    \"billingPlanId\": 101,\n    \"isActive\": true,\n    \"activationCode\": null,\n    \"createdAt\": \"2023-10-17T16:31:57.585552Z\",\n    \"updatedAt\": \"2023-10-17T16:31:57.585552Z\",\n    \"billing_plan\": {\n        \"id\": 102,\n        \"name\": \"Pro\",\n        \"currency\": \"USD\",\n        \"frequency\": \"Monthly\",\n        \"costPerSeat\": 12,\n        \"costPerConfig\": 5,\n        \"totalAllowedUsers\": 100,\n        \"totalAllowedConfig\": 1000,\n        \"isActive\": true,\n        \"createdAt\": \"2023-10-12T14:58:40.901569Z\",\n        \"updatedAt\": \"2023-10-12T14:58:40.901569Z\"\n    },\n    \"subscription_contexts\": [\n        {\n            \"id\": 3,\n            \"subscriptionId\": 2,\n            \"key\": \"tenant_web_instance\",\n            \"value\": \"sequoia.manifestit.io\",\n            \"metadata\": {},\n            \"isActive\": false,\n            \"createdAt\": \"2023-12-05T14:23:36.736517Z\",\n            \"updatedAt\": \"2023-12-05T14:23:36.736517Z\"\n        },\n        {\n            \"id\": 3,\n            \"subscriptionId\": 2,\n            \"key\": \"keycloak\",\n            \"value\": \"asd\",\n            \"metadata\": {\n                \"activation_code\": 73873843847,\n                \"company\": \"Amplitude Greater Corp\",\n                \"default_org\": 2,\n                \"domain\": \"amplitude.com\",\n                \"idp_client_id\": \"manifest-frontend\",\n                \"idp_client_secret\": \"************dvu\",\n                \"idp_create_user_url\": \"https://keycloak.manifestit.tech/admin/realms/onboard-dev/users\",\n                \"idp_end_session_url\": \"https://keycloak.manifestit.tech/realms/onboard-dev/protocol/openid-connect/logout\",\n                \"idp_issuer\": \"https://keycloak.manifestit.tech/realms/onboard-dev\",\n                \"idp_jwks_url\": \"https://keycloak.manifestit.tech/realms/onboard-dev/protocol/openid-connect/certs\",\n                \"idp_realm\": \"onboard-dev\",\n                \"idp_realm_group\": \"onboard\",\n                \"idp_refresh_token_url\": \"https://keycloak.manifestit.tech/realms/onboard-dev/protocol/openid-connect/token\",\n                \"purchase_contact_email\": \"troy.castor@amplitude.com\",\n                \"sub_id\": 2,\n                \"sub_key\": \"************oak\",\n                \"sub_type\": \"trial\",\n                \"sys_admin_email\": \"troy.castor@amplitude.com\",\n                \"tenant_web_instance\": \"amplitude.manifestit.io\",\n                \"vpc_range\": \"10.0.0.0/25\"\n            },\n            \"isActive\": true,\n            \"createdAt\": \"2023-12-05T14:23:36.736517Z\",\n            \"updatedAt\": \"2023-12-05T14:23:36.736517Z\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/subscription/:id",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"subscription",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get the contacts with Id Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const response = pm.response;",
+							"",
+							"pm.test(\"Response format is proper or not\", function(){",
+							"",
+							"    response.id!=null",
+							"    response.key!=null",
+							"})",
+							"",
+							"pm.test(\"Is it active or not\",function(){",
+							"    response.isActive!=false",
+							"})",
+							"",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "mit_org_id",
+						"value": "{{mit_org_id}}",
+						"type": "text"
+					},
+					{
+						"key": "mit_subscription_id",
+						"value": "{{mit_subscription_id}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n        \"id\": 1,\n        \"type\": \"Billing\",\n        \"name\": \"Tom Hilton\",\n        \"subscriptionId\": 1,\n        \"isSuperUser\": false,\n        \"isBillingUser\": true,\n        \"medium\": \"Email\",\n        \"phoneNumber\": \"+919873543211\",\n        \"email\": \"tom.hilton@amplitude.com\",\n        \"emailAlias\": \"tom@amplitude.com\",\n        \"isActive\": true,\n        \"createdAt\": \"2023-10-12T19:57:34.635595Z\",\n        \"updatedAt\": \"2023-10-12T19:57:34.635595Z\",\n        \"subscription\": null\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/sys_contact/:id",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"sys_contact",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete the contact with Id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const response = pm.response;",
+							"",
+							"pm.test(\"Response format is proper or not\", function(){",
+							"",
+							"    response.id!=null",
+							"    response.key!=null",
+							"})",
+							"",
+							"pm.test(\"Is it active or not\",function(){",
+							"    response.isActive!=false",
+							"})",
+							"",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "mit_org_id",
+						"value": "{{mit_org_id}}",
+						"type": "text"
+					},
+					{
+						"key": "mit_subscription_id",
+						"value": "{{mit_subscription_id}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}:{{port}}/sys_contact/:id",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"sys_contact",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put user context log",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const response = pm.response;",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "mit_org_id",
+						"value": "{{mit_org_id}}",
+						"type": "text"
+					},
+					{
+						"key": "mit_subscription_id",
+						"value": "{{mit_subscription_id}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}:{{port}}/user/2/context/log",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"user",
+						"2",
+						"context",
+						"log"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost",
+			"type": "string"
+		},
+		{
+			"key": "port",
+			"value": "8000",
+			"type": "string"
+		},
+		{
+			"key": "mit_org_id",
+			"value": "2",
+			"type": "string"
+		},
+		{
+			"key": "mit_subscription_id",
+			"value": "2",
+			"type": "string"
+		},
+		{
+			"key": "access_token",
+			"value": ""
+		}
+	]
+}
